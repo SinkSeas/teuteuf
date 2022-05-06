@@ -1,6 +1,7 @@
 import { DateTime } from "luxon";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import seedrandom from "seedrandom";
+import { TWITCH_PLAYS_WORLDLE } from "../App";
 import {
   bigEnoughCountriesWithImage,
   countriesWithImage,
@@ -77,6 +78,12 @@ export function useTodays(dayString: string): [
 }
 
 function getCountry(dayString: string) {
+  if (TWITCH_PLAYS_WORLDLE) {
+    return bigEnoughCountriesWithImage[
+      Math.floor(bigEnoughCountriesWithImage.length * Math.random())
+    ];
+  }
+
   const currentDayDate = DateTime.fromFormat(dayString, "yyyy-MM-dd");
   let pickingDate = DateTime.fromFormat("2022-03-21", "yyyy-MM-dd");
   let smallCountryCooldown = 0;

@@ -14,6 +14,8 @@ import { Stats } from "./components/panels/Stats";
 import { Twemoji } from "@teuteuf/react-emoji-render";
 import { getDayString, useTodays } from "./hooks/useTodays";
 
+export const TWITCH_PLAYS_WORLDLE = true;
+
 const supportLink: Record<string, string> = {
   UA: "https://donate.redcrossredcrescent.org/ua/donate/~my-donation?_cv=1",
 };
